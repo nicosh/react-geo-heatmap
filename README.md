@@ -4,7 +4,7 @@ This app uses :
 [react-leaflet](https://github.com/PaulLeCam/react-leaflet)  
 [react-leaflet-heatmap-layer](https://github.com/OpenGov/react-leaflet-heatmap-layer)  
 
-![Cattura](https://user-images.githubusercontent.com/8511928/70742218-4f4e2580-1d1d-11ea-80d9-ffd1a39d7b34.PNG)
+![cattura3](https://user-images.githubusercontent.com/8511928/70744801-c89c4700-1d22-11ea-9728-d99ef3010a68.gif)
 
 ## Getting Started
 ### Get your location data
