@@ -2,8 +2,9 @@
 Inspired by [geo-heatmap](https://github.com/luka1199/geo-heatmap), a very simple react app that creates an interactive geo heatmap from your Google location history.
 ## Getting Started
 ### Get your location data
-You can download  your location data here: https://takeout.google.com/
-You only need to select and download your "Location History", choose Json file.
+You can download  your location data here: https://takeout.google.com/  
+You only need to select, and download, "Location History", choose Json as file format.  
+Rename it to `history.json` and replace the empty one  `src/history.json`  
 
 ### Installation
-Clone the repository run `npm install` for installing dependencies, then `npm start`  for development mode or `npm build` for building the app for production
+Clone the repository and run `npm install` to install dependencies, then `npm start`  for development mode or `npm build` for building the app for production
