@@ -1,0 +1,19 @@
+h4{
+    font-weight: 400 !important;
+    font-size: 1.4rem !important;
+}
+.searchbox{
+    background-color: rgba(255,255,255,0.7);
+    padding: 25px;
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    right: 0;
+    top: 75px;
+    right: 31px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.ant-select-dropdown{
+    z-index: 99999;
+}
