@@ -6,7 +6,7 @@ This app uses :
 [react-leaflet-heatmap-layer](https://github.com/OpenGov/react-leaflet-heatmap-layer)  
 [supercluster](https://github.com/mapbox/supercluster#readme)  to manage such large files and prevent map to lag.
 
-![cattura3](https://user-images.githubusercontent.com/8511928/71210472-40cbb500-22ad-11ea-9fc2-0b2266ccebaa.gif)
+![cattura3](https://user-images.githubusercontent.com/8511928/71216840-00bffe80-22bc-11ea-9548-6cbe72f17288.gif)
 
 ## Getting Started
 ### Get your location data
