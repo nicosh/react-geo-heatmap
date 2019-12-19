@@ -9,12 +9,9 @@ const offset = args.length > 0 ? parseInt(args[0].replace('--count=','')) : 1000
 const  randomIntFromInterval = (min, max) => { 
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 const coherceToE7 = n => parseInt(n*10000000)
 const activities = ["IN_VEHICLE","TILTING","STILL","IN_RAIL_VEHICLE","WALKING","ON_FOOT","ON_BICYCLE","RUNNING"]
-
 let points = []
-
 for (i=0;i<offset;i++) {
     let randomdate = randomIntFromInterval(dateTo,dateFrom)
     let random_boolean = Math.random() >= 0.5;

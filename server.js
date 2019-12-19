@@ -6,6 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const Supercluster = require('supercluster');
+const moment = require('moment');
 
 const getActivityRecap = (json)=>{
   let result = []
@@ -20,6 +21,40 @@ const getActivityRecap = (json)=>{
   })
   return result
 }
+
+const getActivityRecapFlat = (json)=>{
+  let result = []
+  json.forEach(el=>{
+    if(el.hasOwnProperty("activity")){
+      el.activity.forEach(element=>{
+        element.activity.forEach(final=>{
+          result.push({timestampMs : el.timestampMs, ...final})
+        })
+      })
+    }
+  })
+  return result
+}
+const GetGroupedByYear = (arr)=>{
+  return arr.reduce((acc,curr)=>{
+    let y = parseInt(curr.timestampMs)
+    let year = moment(y).year()
+    let type = curr.type
+    if(acc.hasOwnProperty(year)){
+        let yearobj = acc[year]
+        if(yearobj.hasOwnProperty(type)){
+            acc[year][type]++
+        }else{
+            acc[year][type] = 1
+        }
+    }else{
+        acc[year] = {}
+        acc[year][type] = 1
+    }
+    return acc
+  },{})
+}
+const GroupedByYear = GetGroupedByYear(getActivityRecapFlat(jsonData.locations))
 
 const getActivityOcc = (name,arr)=>{
   return arr.reduce(function(n, val) {
@@ -109,6 +144,10 @@ app.prepare().then(() => {
     res.json("ok")
   })
 
+  server.get('/grouped-by-year', (req, res) => {
+    res.json(GroupedByYear)
+  })
+
   // get all  activities
   server.get('/get-activities', (req, res) => {
     let toalactivities = getActivityRecap(jsonData.locations)
@@ -116,7 +155,6 @@ app.prepare().then(() => {
     let orderedActivities = getOrderedArray(uniqueActivities,toalactivities)
     res.json(orderedActivities)
   })
-
   // we initialize map with firs 1000 items
   server.get('/init', (req, res) => {
     let coordiantes = data.slice(0, 1000)

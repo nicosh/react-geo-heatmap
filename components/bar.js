@@ -1,10 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import {BarChart, Bar, XAxis, YAxis,ResponsiveContainer,Tooltip}  from 'Recharts';
 
 
 
-class List extends React.Component {
+class Barchart extends React.Component {
   constructor(props){
     super(props)
   }
@@ -19,6 +18,7 @@ class List extends React.Component {
       }
     })
     return (
+      
       <div className="mt-4">
         <ResponsiveContainer width="100%" height={400}>
     	<BarChart
@@ -34,7 +34,7 @@ class List extends React.Component {
         <Bar background label dataKey="n" fill="#8884d8" />
       </BarChart>
       </ResponsiveContainer>
-      <table className="table">
+      <table className="table mt-4">
         <thead>
           <tr>
             <th scope="col">Activity type</th>
@@ -62,4 +62,4 @@ class List extends React.Component {
 
 
 
-export default List;
+export default Barchart;

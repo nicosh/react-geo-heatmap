@@ -6,16 +6,16 @@ This app uses :
 [react-leaflet-heatmap-layer](https://github.com/OpenGov/react-leaflet-heatmap-layer)  
 [supercluster](https://github.com/mapbox/supercluster#readme)  to manage such large files and prevent map to lag.
 
-![cattura3](https://user-images.githubusercontent.com/8511928/70744801-c89c4700-1d22-11ea-9728-d99ef3010a68.gif)
+![cattura3](https://user-images.githubusercontent.com/8511928/71210472-40cbb500-22ad-11ea-9fc2-0b2266ccebaa.gif)
 
 ## Getting Started
 ### Get your location data
 You can download  your location data here: https://takeout.google.com/  
 You only need to select, and download, "Location History", choose Json as file format.  
-Rename it to `history.json` and  move it to  `public/history.json`  
 
 ### Installation
-Clone the repository and run `npm install` to install dependencies, then `npm run dev`  for development mode or  follow next.js [instructions](https://nextjs.org/learn/basics/deploying-a-nextjs-app) for building the app for production
+Clone the repository,rename your location history to it to `history.json` and  move it to  `public/history.json`.   
+run `npm install` to install dependencies, then `npm run dev`  for development mode or  follow next.js [instructions](https://nextjs.org/learn/basics/deploying-a-nextjs-app) for building the app for production
 
 ### Testing
 You can test the app with random geo-data, run `node randomData.js` by default it  generate 1000000 points (~200MB) , you can override this number passing `count` as argoument ex. `node randomData.js --count=1000`.  
