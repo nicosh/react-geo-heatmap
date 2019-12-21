@@ -22,14 +22,13 @@ class Pies extends React.Component {
   
   render() {
     const {data} = this.state
-    console.log(Object.keys(data))
     return (
       <div className="row text-center mt-4">
         <div className="col-md-12 text-center">
             <h4>Yearly activities</h4>
         </div>
-          {Object.keys(data).map(el=>{
-              return <Pie name={el} data={data[el]} />
+          {Object.keys(data).map((el, index)=>{
+              return <Pie key={index} name={el} data={data[el]} />
           })}
       </div>
 

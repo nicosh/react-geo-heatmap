@@ -1,8 +1,13 @@
+body{
+    font-family: 'Josefin Sans', sans-serif;
+
+}
 h4{
     font-weight: 400 !important;
     font-size: 1.4rem !important;
 }
 .searchbox{
+    width: 500px;
     background-color: rgba(255,255,255,0.7);
     padding: 25px;
     position: absolute;
@@ -16,4 +21,23 @@ h4{
 }
 .ant-select-dropdown{
     z-index: 99999;
+}
+
+.flexbox-centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh !important;
+
+  }
+
+  .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    position: relative;
+    padding: 4px 11px;
+    padding-left: 40px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 22px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
 }

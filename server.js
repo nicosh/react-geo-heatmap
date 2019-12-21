@@ -7,6 +7,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const Supercluster = require('supercluster');
 const moment = require('moment');
+let {cfg} = require('./utils')
 
 const getActivityRecap = (json)=>{
   let result = []
@@ -93,13 +94,7 @@ const  getLocationPoins = (json)=>{
 }
 
 const data = getLocationPoins(jsonData.locations)
-const index = new Supercluster({
-  log: false,
-  radius: 40,
-  extent: 1024,
-  nodeSize : 10,
-  maxZoom: 17
-}).load(data)
+const index = new Supercluster(cfg).load(data)
 
 let filterIndex = index;
 
@@ -133,13 +128,7 @@ app.prepare().then(() => {
       filteredData = filtered
     }
     let datax = getLocationPoins(filteredData)
-    let neewindex = filterIndex = new Supercluster({
-      log: false,
-      radius: 40,
-      extent: 1024,
-      nodeSize : 10,
-      maxZoom: 17
-    }).load(datax)
+    let neewindex = filterIndex = new Supercluster(cfg).load(datax)
     filterIndex = neewindex
     res.json("ok")
   })
@@ -158,6 +147,7 @@ app.prepare().then(() => {
   // we initialize map with firs 1000 items
   server.get('/init', (req, res) => {
     let coordiantes = data.slice(0, 1000)
+    filterIndex = index
     res.json(coordiantes)
   })
 
@@ -168,6 +158,16 @@ app.prepare().then(() => {
     let clusters = filterIndex.getClusters(thebbox, zoom) 
     res.json(clusters)
   })
+
+  // on map move we get supercluster points
+  server.post('/update-cfg', (req, res) => {
+    let newcfg= req.body.cfg
+    let neewindex = filterIndex = new Supercluster(newcfg).load(data)
+    filterIndex = neewindex
+    res.json({status : "ok",cfg})
+
+  })
+
 
   server.all('*', (req, res) => {
     return handle(req, res)

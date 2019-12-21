@@ -7,7 +7,6 @@ import {PieChart, Pie, Sector, YAxis,ResponsiveContainer,Tooltip}  from 'Rechart
 class Barchart extends React.Component {
   constructor(props){
     super(props)
-    console.log(props)
     let data = Object.keys(props.data).map(el=>{
         return {name : el, value : props.data[el]}
     })

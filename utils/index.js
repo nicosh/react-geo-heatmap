@@ -1,4 +1,14 @@
- let randomPoints = [
+// supercluster config
+const cfg = {
+    log : false,
+    radius: 40,
+    extent : 1024,
+    nodeSize :10,
+    maxZoom :17,
+}
+
+//radom data starting points
+const randomPoints = [
 {latitude: 37.76447260365713, longitude: -122.41859436035158},
 {latitude: 37.77017196507861, longitude: -122.4254608154297},
 {latitude: 37.77098612371078, longitude: -122.41241455078126},
@@ -66,3 +76,4 @@
 ]
 
 exports.randomPoints = randomPoints;
+exports.cfg = cfg
